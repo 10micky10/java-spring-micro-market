@@ -1,6 +1,7 @@
 package com.micromarket.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -14,6 +15,9 @@ public class Categoria {
   private String descripcion;
 
   private Boolean estado;
+
+  @OneToMany(mappedBy = "categoria")
+  private List<Producto> listaProductos;
 
   public Integer getIdCategoria() {
     return idCategoria;
